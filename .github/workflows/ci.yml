@@ -20,7 +20,6 @@ jobs:
           sudo ln -fs /usr/local/bin/g++-12 /usr/local/bin/g++
       - name: Symlink gcc bin
         run: |
-          mkdir -p /usr/local/opt/gcc/lib/gcc
           sudo ln -fs /usr/local/opt/gcc/lib/gcc/12 /usr/local/opt/gcc/lib/gcc/11
       - name: List gcc libdir contents
         run: |
