@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+jobs:
+  test:
+    name: Test
+    runs-on: macos-latest
+    steps:
+      - name: Symlink gfortran
+        run: |
+          sudo ln -fs /usr/local/bin/gfortran-11 /usr/local/bin/gfortran
+          sudo ln -fs /usr/local/bin/gcc-11 /usr/local/bin/gcc
+          sudo ln -fs /usr/local/bin/g++-11 /usr/local/bin/g++
+      - name: List gcc libdir contents
+        run: |
+          ls /usr/local/opt/gcc/lib/gcc/11/
